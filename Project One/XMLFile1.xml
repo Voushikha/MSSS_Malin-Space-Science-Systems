@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>Galileo</name>
+	</assembly>
+	<members>
+		<member name="T:Galileo.ReadData">
+			<summary>
+				A data recording library that returns the readings from two sensors.
+			</summary>
+		</member>
+		<member name="M:Galileo.ReadData.SensorA(System.Double,System.Double)">
+			<summary>
+				Sensor A records data that represents a Gaussian distribution
+				(also known as normal distribution) it is a bell-shaped curve.
+				It is assumed that during any measurement, values will follow a normal
+				distribution with an equal number of measurements above and below the mean value (mu).
+			</summary>
+			<param name="mu">The mean of the distribution</param>
+			<param name="sigma">The standard deviation of the distribution</param>
+			<returns>A data reading within a Gaussian Distribution rounded to 4 decimal points</returns>
+		</member>
+		<member name="M:Galileo.ReadData.SensorB(System.Double,System.Double)">
+			<summary>
+				Sensor B records data that represents a Box-Muller distribution
+				(also known as normal distribution) it is a bell-shaped curve.
+				It is assumed that during any measurement, values will follow a normal
+				distribution with an equal number of measurements above and below the mean value (mu).
+			</summary>
+			<param name="mu">The mean of the distribution</param>
+			<param name="sigma">The standard deviation of the distribution</param>
+			<returns>A data reading within a Box-Muller Distribution rounded to 4 decimal points</returns>
+		</member>
+	</members>
+</doc>
