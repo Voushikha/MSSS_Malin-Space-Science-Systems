@@ -125,6 +125,7 @@
             this.Load_Btn.TabIndex = 5;
             this.Load_Btn.Text = "Load Sensor Data";
             this.Load_Btn.UseVisualStyleBackColor = true;
+            this.Load_Btn.Click += new System.EventHandler(this.Load_Btn_Click);
             // 
             // labelSigma
             // 
