@@ -11,7 +11,7 @@ namespace Project_One
     public partial class Form1 : Form
     {
         #region Global Methods
-        //4.1 // Global LinkedLists
+        //4.1 // Global LinkedLists.
         public static LinkedList<double> SensorALinkedList = new LinkedList<double>();
         public static LinkedList<double> SensorBLinkedList = new LinkedList<double>();
 
