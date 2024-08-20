@@ -82,6 +82,7 @@
             this.SensorAB_listBox.Name = "SensorAB_listBox";
             this.SensorAB_listBox.Size = new System.Drawing.Size(160, 420);
             this.SensorAB_listBox.TabIndex = 0;
+            this.SensorAB_listBox.SelectedIndexChanged += new System.EventHandler(this.SensorAB_listBox_SelectedIndexChanged);
             // 
             // SensorA_listView
             // 

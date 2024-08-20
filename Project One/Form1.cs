@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project_One
 {
@@ -17,55 +18,110 @@ namespace Project_One
 
         public Form1()
         {
-            InitializeComponent();   
-    }
-    private void Form1_Load(object sender, EventArgs e)
+            InitializeComponent();
+        }
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
         // 4.2 LoadData Method
-       
+
         private void LoadData()
         {
-            try
+            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
             {
-                SensorALinkedList.Clear();
-                SensorBLinkedList.Clear();
-                ReadData sensorData = new ReadData();
-                double sigma = double.Parse(numericUpDown_Sigma.Text);
-                double mu = double.Parse(numericUpDown_Mu.Text);
-
-                for (int i = 0; i < 400; i++)
+                List<string> listA = new List<string>();
+                List<string> listB = new List<string>();
+                while (!reader.EndOfStream)
                 {
-                    double sensorAValue = sensorData.SensorA(mu, sigma);
-                    double sensorBValue = sensorData.SensorB(mu, sigma);
+                    var line = reader.ReadLine();
+                    var values = line.Split(';');
 
-                    SensorALinkedList.AddLast(sensorAValue);
-                    SensorBLinkedList.AddLast(sensorBValue);
+                    // Validate that the split operation resulted in the expected number of parts
+                    if (values.Length == 2)
+                    {
+                        listA.Add(values[0]); // Safely access the first part (ID)
+                        listB.Add(values[1]); // Safely access the second part (name)
+                    }
+                    else
+                    {
+                        // Log or handle the case where the line does not contain the expected number of parts
+                        Console.WriteLine($"Unexpected format in line: {line}");
+                    }
                 }
-            }
-            catch (FileNotFoundException ex)
-            {
-                MessageBox.Show($"Error loading Galileo library: {ex.Message}", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                // Assuming myListBox is the name of your ListBox control
+                SensorAB_listBox.Items.AddRange(listA.ToArray()); // Add IDs to the ListBox
+                SensorAB_listBox.Items.AddRange(listB.ToArray()); // Add names to the ListBox
             }
         }
+            //using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
+            //{
+            //    List<string> listA = new List<string>();
+            //    List<string> listB = new List<string>();
+            //    while (!reader.EndOfStream)
+            //    {
+            //        var line = reader.ReadLine();
+            //        var values = line.Split(';');
 
-        //4.3 ShowAllSensorData Method
-        private void ShowAllSensorData()
+            //        listA.Add(values[0]);
+            //        listB.Add(values[1]);
+            //    }
+            //}
+//            var ListA = new List<string>();
+//            var ListB = new List<string>();
+//            try 
+//            { 
+//            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
+//            {
+//                while (!reader.EndOfStream)
+//                {
+//                    var line = reader.ReadLine();
+//                    var values = line.Split(';');
+
+//                    if (values.Length >= 2)
+//                    {
+//                        double valueA;
+//                        double valueB;
+
+//                        if (Double.TryParse(values[0], out valueA))
+//                        {
+//                            SensorALinkedList.AddLast(valueA);
+//                        }
+
+//                        if (Double.TryParse(values[1], out valueB))
+//                        {
+//                            SensorBLinkedList.AddLast(valueB);
+//                        }
+//                    }
+//                }
+
+//            }
+//        }
+//         catch (Exception ex)
+//        {
+//            MessageBox.Show("Error loading data: " + ex.Message);
+//        }
+//}
+
+//4.3 ShowAllSensorData Method
+private void ShowAllSensorData()
         {
-            SensorAB_listBox.Items.Clear();
-            var sensorAEnumerator = SensorALinkedList.GetEnumerator();
-            var sensorBEnumerator = SensorBLinkedList.GetEnumerator();
+           //SensorAB_listBox.Items.Clear();
 
-            while (sensorAEnumerator.MoveNext() && sensorBEnumerator.MoveNext())
-            {
-                var item = new System.Windows.Forms.ListViewItem(new[] { sensorAEnumerator.Current.ToString(), sensorBEnumerator.Current.ToString() });
-                SensorAB_listBox.Items.Add(item);
-            }
+           // foreach (var item in SensorALinkedList)
+           // {
+           //     SensorAB_listBox.Items.Add(item.ToString());
+           // }
+
+           // // Iterate through sensorBLinkedList and add each item to the ListBox
+           // foreach (var item in SensorBLinkedList)
+           // {
+           //     SensorAB_listBox.Items.Add(item.ToString());
+           // }
+
+            
         }
 
         // 4.4 Button Click Event for Loading Data
@@ -75,14 +131,14 @@ namespace Project_One
             ShowAllSensorData();
         }
         //4.4 ListViEW
-       
+
         #endregion
 
         #region Utility Methods
         //4.5 NumberOfNodes Method
         private void NumberOfNodes()
         {
-           
+
 
         }
 
@@ -93,7 +149,7 @@ namespace Project_One
             foreach (var item in SensorALinkedList)
             {
                 SensorAB_listBox.Items.Add((string)item.ToString());
-            }    
+            }
             foreach (var item in SensorBLinkedList)
             {
                 SensorAB_listBox.Items.Add((string)item.ToString());
@@ -105,7 +161,7 @@ namespace Project_One
         //4.7 SelectionSort Method
         private void SelectionSort()
         {
-    
+
 
         }
 
@@ -175,7 +231,7 @@ namespace Project_One
                 {
                     return middle;
                 }
-                
+
                 else if (sortedList[middle] > target)
                 {// If element is smaller than mid, then
                  // it can only be present in left subarray
@@ -204,6 +260,10 @@ namespace Project_One
 
         }
 
-        
+        private void SensorAB_listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
