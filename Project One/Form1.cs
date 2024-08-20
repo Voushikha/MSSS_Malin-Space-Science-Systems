@@ -1,11 +1,11 @@
-﻿using Galileo6;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Galileo6;
 
 namespace Project_One
 {
@@ -16,18 +16,24 @@ namespace Project_One
         public static LinkedList<double> SensorALinkedList = new LinkedList<double>();
         public static LinkedList<double> SensorBLinkedList = new LinkedList<double>();
 
+
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            
 
         }
-        // 4.2 LoadData Method
 
+        // 4.2 LoadData Method
+        //https://ironsoftware.com/csharp/excel/blog/using-ironxl/csharp-read-csv-file-into-list-tutorial/ 
+        //https://memgraph.com/docs/data-migration/csv
         private void LoadData()
         {
+            
+
             using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
             {
                 List<string> listA = new List<string>();
@@ -40,8 +46,8 @@ namespace Project_One
                     // Validate that the split operation resulted in the expected number of parts
                     if (values.Length == 2)
                     {
-                        listA.Add(values[0]); // Safely access the first part (ID)
-                        listB.Add(values[1]); // Safely access the second part (name)
+                        listA.Add(values[0]);
+                        listB.Add(values[1]);
                     }
                     else
                     {
@@ -51,77 +57,81 @@ namespace Project_One
                 }
 
 
-                // Assuming myListBox is the name of your ListBox control
-                SensorAB_listBox.Items.AddRange(listA.ToArray()); // Add IDs to the ListBox
-                SensorAB_listBox.Items.AddRange(listB.ToArray()); // Add names to the ListBox
+
+                SensorAB_listBox.Items.AddRange(listA.ToArray());
+                SensorAB_listBox.Items.AddRange(listB.ToArray());
             }
         }
-            //using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
-            //{
-            //    List<string> listA = new List<string>();
-            //    List<string> listB = new List<string>();
-            //    while (!reader.EndOfStream)
-            //    {
-            //        var line = reader.ReadLine();
-            //        var values = line.Split(';');
 
-            //        listA.Add(values[0]);
-            //        listB.Add(values[1]);
-            //    }
-            //}
-//            var ListA = new List<string>();
-//            var ListB = new List<string>();
-//            try 
-//            { 
-//            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
-//            {
-//                while (!reader.EndOfStream)
-//                {
-//                    var line = reader.ReadLine();
-//                    var values = line.Split(';');
+        //using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
+        //{
+        //    List<string> listA = new List<string>();
+        //    List<string> listB = new List<string>();
+        //    while (!reader.EndOfStream)
+        //    {
+        //        var line = reader.ReadLine();
+        //        var values = line.Split(';');
 
-//                    if (values.Length >= 2)
-//                    {
-//                        double valueA;
-//                        double valueB;
+        //        listA.Add(values[0]);
+        //        listB.Add(values[1]);
+        //    }
+        //}
+        //            var ListA = new List<string>();
+        //            var ListB = new List<string>();
+        //            try 
+        //            { 
+        //            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
+        //            {
+        //                while (!reader.EndOfStream)
+        //                {
+        //                    var line = reader.ReadLine();
+        //                    var values = line.Split(';');
 
-//                        if (Double.TryParse(values[0], out valueA))
-//                        {
-//                            SensorALinkedList.AddLast(valueA);
-//                        }
+        //                    if (values.Length >= 2)
+        //                    {
+        //                        double valueA;
+        //                        double valueB;
 
-//                        if (Double.TryParse(values[1], out valueB))
-//                        {
-//                            SensorBLinkedList.AddLast(valueB);
-//                        }
-//                    }
-//                }
+        //                        if (Double.TryParse(values[0], out valueA))
+        //                        {
+        //                            SensorALinkedList.AddLast(valueA);
+        //                        }
 
-//            }
-//        }
-//         catch (Exception ex)
-//        {
-//            MessageBox.Show("Error loading data: " + ex.Message);
-//        }
-//}
+        //                        if (Double.TryParse(values[1], out valueB))
+        //                        {
+        //                            SensorBLinkedList.AddLast(valueB);
+        //                        }
+        //                    }
+        //                }
 
-//4.3 ShowAllSensorData Method
-private void ShowAllSensorData()
+        //            }
+        //        }
+        //         catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Error loading data: " + ex.Message);
+        //        }
+        //}
+
+        //4.3 ShowAllSensorData Method
+        private void ShowAllSensorData()
         {
-           //SensorAB_listBox.Items.Clear();
+           
 
-           // foreach (var item in SensorALinkedList)
-           // {
-           //     SensorAB_listBox.Items.Add(item.ToString());
-           // }
+           SensorAB_listBox.Items.Clear();
 
-           // // Iterate through sensorBLinkedList and add each item to the ListBox
-           // foreach (var item in SensorBLinkedList)
-           // {
-           //     SensorAB_listBox.Items.Add(item.ToString());
-           // }
 
-            
+            foreach (var item in SensorALinkedList)
+            {
+                SensorAB_listBox.Items.Add(item.ToString());
+            }
+
+            // Iterate through sensorBLinkedList and add each item to the ListBox
+            foreach (var item in SensorBLinkedList)
+            {
+                SensorAB_listBox.Items.Add(item.ToString());
+            }
+
+
         }
 
         // 4.4 Button Click Event for Loading Data
