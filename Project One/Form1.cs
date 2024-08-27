@@ -6,6 +6,12 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Galileo6;
+using System.Globalization;
+using CsvHelper;
+using System.Numerics;
+using System.Windows.Markup;
+using System.Runtime.Remoting.Messaging;
+
 
 namespace Project_One
 {
@@ -32,36 +38,64 @@ namespace Project_One
         //https://memgraph.com/docs/data-migration/csv
         private void LoadData()
         {
-            
-
-            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
+            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\Trial.csv"))
             {
-                List<string> listA = new List<string>();
-                List<string> listB = new List<string>();
-                while (!reader.EndOfStream)
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(';');
-
-                    // Validate that the split operation resulted in the expected number of parts
-                    if (values.Length == 2)
-                    {
-                        listA.Add(values[0]);
-                        listB.Add(values[1]);
-                    }
-                    else
-                    {
-                        // Log or handle the case where the line does not contain the expected number of parts
-                        Console.WriteLine($"Unexpected format in line: {line}");
-                    }
+                   var records = csv.GetRecords<dynamic>();
                 }
+                //List<string> listA = new List<string>();
+                //List<string> listB = new List<string>();
+                // Declare lists before reading the data
+                // Create an instance of the ReadData class from the Galileo6 library
+                var readData = new Galileo6.ReadData();
 
+                // Hardcoded LinkedList size
+                int linkedListSize = 6;
 
+                // Populate the LinkedLists
+                for (int i = 0; i < linkedListSize; i++)
+                {
+                    double sensorAData = readData.SensorA(0, 1);  // Adjust the parameters as needed
+                    double sensorBData = readData.SensorB(0, 1);  // Adjust the parameters as needed
 
-                SensorAB_listBox.Items.AddRange(listA.ToArray());
-                SensorAB_listBox.Items.AddRange(listB.ToArray());
+                    SensorALinkedList.AddLast(sensorAData);
+                    SensorBLinkedList.AddLast(sensorBData);
+                }
             }
         }
+        
+
+        //    using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\Trial.csv"))
+        //    {
+        //        List<string> listA = new List<string>();
+        //        List<string> listB = new List<string>();
+        //        while (!reader.EndOfStream)
+        //        {
+        //            var line = reader.ReadLine();
+        //            var values = line.Split(';');
+
+        //            // Validate that the split operation resulted in the expected number of parts
+        //            if (values.Length == 2)
+        //            {
+        //                listA.Add(values[0]);
+        //                listB.Add(values[1]);
+        //            }
+        //            else
+        //            {
+        //                // Log or handle the case where the line does not contain the expected number of parts
+        //                Console.WriteLine($"Unexpected format in line: {line}");
+        //            }
+        //        }
+
+
+
+        //        SensorAB_listBox.Items.AddRange(listA.ToArray());
+        //        SensorAB_listBox.Items.AddRange(listB.ToArray());
+        //    }
+        //}
+
+
 
         //using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
         //{
@@ -115,22 +149,22 @@ namespace Project_One
         //4.3 ShowAllSensorData Method
         private void ShowAllSensorData()
         {
-           
+            // Assuming you have a ListBox control named 'SensorAB_listBox'
+            SensorAB_listBox.Items.Clear();
 
-           SensorAB_listBox.Items.Clear();
+            // Ensure both LinkedLists have the same number of elements
+            var nodeA = SensorALinkedList.First;
+            var nodeB = SensorBLinkedList.First;
 
-
-            foreach (var item in SensorALinkedList)
+            while (nodeA != null && nodeB != null)
             {
-                SensorAB_listBox.Items.Add(item.ToString());
-            }
+                // Format the display string with both sensor values side by side
+                string displayText = $"{nodeA.Value,-20} {nodeB.Value}";
+                SensorAB_listBox.Items.Add(displayText);
 
-            // Iterate through sensorBLinkedList and add each item to the ListBox
-            foreach (var item in SensorBLinkedList)
-            {
-                SensorAB_listBox.Items.Add(item.ToString());
+                nodeA = nodeA.Next;
+                nodeB = nodeB.Next;
             }
-
 
         }
 
