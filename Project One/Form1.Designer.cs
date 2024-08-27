@@ -78,9 +78,9 @@
             // SensorAB_listBox
             // 
             this.SensorAB_listBox.FormattingEnabled = true;
-            this.SensorAB_listBox.Location = new System.Drawing.Point(18, 95);
+            this.SensorAB_listBox.Location = new System.Drawing.Point(12, 95);
             this.SensorAB_listBox.Name = "SensorAB_listBox";
-            this.SensorAB_listBox.Size = new System.Drawing.Size(160, 420);
+            this.SensorAB_listBox.Size = new System.Drawing.Size(174, 420);
             this.SensorAB_listBox.TabIndex = 0;
             this.SensorAB_listBox.SelectedIndexChanged += new System.EventHandler(this.SensorAB_listBox_SelectedIndexChanged);
             // 

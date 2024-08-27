@@ -38,119 +38,39 @@ namespace Project_One
         //https://memgraph.com/docs/data-migration/csv
         private void LoadData()
         {
-            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\Trial.csv"))
+            // Clear the ListBox before loading new data
+            SensorAB_listBox.Items.Clear();
+
+            try
             {
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
-                   var records = csv.GetRecords<dynamic>();
-                }
-                //List<string> listA = new List<string>();
-                //List<string> listB = new List<string>();
-                // Declare lists before reading the data
-                // Create an instance of the ReadData class from the Galileo6 library
-                var readData = new Galileo6.ReadData();
+                using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
+                      {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var values = line.Split(',');
 
-                // Hardcoded LinkedList size
-                int linkedListSize = 6;
-
-                // Populate the LinkedLists
-                for (int i = 0; i < linkedListSize; i++)
-                {
-                    double sensorAData = readData.SensorA(0, 1);  // Adjust the parameters as needed
-                    double sensorBData = readData.SensorB(0, 1);  // Adjust the parameters as needed
-
-                    SensorALinkedList.AddLast(sensorAData);
-                    SensorBLinkedList.AddLast(sensorBData);
+                        if (values.Length >= 2)
+                        {
+                            // Combine the two values and add them to the ListBox
+                            string displayText = $"{values[0],-10} {values[1]}";
+                            SensorAB_listBox.Items.Add(displayText);
+                        }
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
         }
-        
-
-        //    using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\Trial.csv"))
-        //    {
-        //        List<string> listA = new List<string>();
-        //        List<string> listB = new List<string>();
-        //        while (!reader.EndOfStream)
-        //        {
-        //            var line = reader.ReadLine();
-        //            var values = line.Split(';');
-
-        //            // Validate that the split operation resulted in the expected number of parts
-        //            if (values.Length == 2)
-        //            {
-        //                listA.Add(values[0]);
-        //                listB.Add(values[1]);
-        //            }
-        //            else
-        //            {
-        //                // Log or handle the case where the line does not contain the expected number of parts
-        //                Console.WriteLine($"Unexpected format in line: {line}");
-        //            }
-        //        }
 
 
-
-        //        SensorAB_listBox.Items.AddRange(listA.ToArray());
-        //        SensorAB_listBox.Items.AddRange(listB.ToArray());
-        //    }
-        //}
-
-
-
-        //using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
-        //{
-        //    List<string> listA = new List<string>();
-        //    List<string> listB = new List<string>();
-        //    while (!reader.EndOfStream)
-        //    {
-        //        var line = reader.ReadLine();
-        //        var values = line.Split(';');
-
-        //        listA.Add(values[0]);
-        //        listB.Add(values[1]);
-        //    }
-        //}
-        //            var ListA = new List<string>();
-        //            var ListB = new List<string>();
-        //            try 
-        //            { 
-        //            using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
-        //            {
-        //                while (!reader.EndOfStream)
-        //                {
-        //                    var line = reader.ReadLine();
-        //                    var values = line.Split(';');
-
-        //                    if (values.Length >= 2)
-        //                    {
-        //                        double valueA;
-        //                        double valueB;
-
-        //                        if (Double.TryParse(values[0], out valueA))
-        //                        {
-        //                            SensorALinkedList.AddLast(valueA);
-        //                        }
-
-        //                        if (Double.TryParse(values[1], out valueB))
-        //                        {
-        //                            SensorBLinkedList.AddLast(valueB);
-        //                        }
-        //                    }
-        //                }
-
-        //            }
-        //        }
-        //         catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Error loading data: " + ex.Message);
-        //        }
-        //}
-
-        //4.3 ShowAllSensorData Method
         private void ShowAllSensorData()
         {
-            // Assuming you have a ListBox control named 'SensorAB_listBox'
-            SensorAB_listBox.Items.Clear();
+
+            SensorA_listView.Items.Clear();
+            SensorB_listView.Items.Clear();
 
             // Ensure both LinkedLists have the same number of elements
             var nodeA = SensorALinkedList.First;
@@ -160,19 +80,21 @@ namespace Project_One
             {
                 // Format the display string with both sensor values side by side
                 string displayText = $"{nodeA.Value,-20} {nodeB.Value}";
-                SensorAB_listBox.Items.Add(displayText);
+                SensorA_listView.Items.Add(displayText);
+                SensorB_listView.Items.Add(displayText);
 
                 nodeA = nodeA.Next;
                 nodeB = nodeB.Next;
             }
-
         }
+
 
         // 4.4 Button Click Event for Loading Data
         private void Load_Btn_Click(object sender, EventArgs e)
         {
             LoadData();
             ShowAllSensorData();
+            
         }
         //4.4 ListViEW
 
