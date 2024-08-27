@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SensorAB_listBox = new System.Windows.Forms.ListBox();
             this.SensorA_listView = new System.Windows.Forms.ListView();
             this.SensorB_listView = new System.Windows.Forms.ListView();
@@ -41,42 +42,47 @@
             this.IterSearchBtn = new System.Windows.Forms.Button();
             this.RecurSearchBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.BinaryIterSearch_TxtBox = new System.Windows.Forms.TextBox();
-            this.BinaryRecurSearch_TxtBox = new System.Windows.Forms.TextBox();
+            this.BinaryIterSearch_TxtBoxA = new System.Windows.Forms.TextBox();
+            this.BinaryRecurSearch_TxtBoxA = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.SearchTarget_txtBox = new System.Windows.Forms.TextBox();
+            this.SearchTarget_txtBoxA = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SelectionSort_btn = new System.Windows.Forms.Button();
-            this.SelectSort_txtBox = new System.Windows.Forms.TextBox();
-            this.InsertSort_txtBox = new System.Windows.Forms.TextBox();
+            this.SelectSort_txtBoxA = new System.Windows.Forms.TextBox();
+            this.InsertSort_txtBoxA = new System.Windows.Forms.TextBox();
             this.InsertSort_btn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.InsertSort_txtBox1 = new System.Windows.Forms.TextBox();
+            this.InsertSort_txtBoxB = new System.Windows.Forms.TextBox();
             this.InsertSort_btn1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.SelectSort_txtBox1 = new System.Windows.Forms.TextBox();
+            this.SelectSort_txtBoxB = new System.Windows.Forms.TextBox();
             this.SelectionSort_btn1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.SearchTarget_txtBox1 = new System.Windows.Forms.TextBox();
+            this.SearchTarget_txtBoxB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.BinaryRecurSearch_TxtBox1 = new System.Windows.Forms.TextBox();
-            this.BinaryIterSearch_TxtBox1 = new System.Windows.Forms.TextBox();
+            this.BinaryRecurSearch_TxtBoxB = new System.Windows.Forms.TextBox();
+            this.BinaryIterSearch_TxtBoxB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.RecurSearchBtn1 = new System.Windows.Forms.Button();
             this.IterSearchBtn1 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Sigma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Mu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // SensorAB_listBox
             // 
             this.SensorAB_listBox.FormattingEnabled = true;
-            this.SensorAB_listBox.Location = new System.Drawing.Point(18, 95);
+            this.SensorAB_listBox.Location = new System.Drawing.Point(12, 95);
             this.SensorAB_listBox.Name = "SensorAB_listBox";
-            this.SensorAB_listBox.Size = new System.Drawing.Size(160, 420);
+            this.SensorAB_listBox.Size = new System.Drawing.Size(174, 420);
             this.SensorAB_listBox.TabIndex = 0;
+            this.SensorAB_listBox.SelectedIndexChanged += new System.EventHandler(this.SensorAB_listBox_SelectedIndexChanged);
             // 
             // SensorA_listView
             // 
@@ -120,6 +126,7 @@
             this.Load_Btn.TabIndex = 5;
             this.Load_Btn.Text = "Load Sensor Data";
             this.Load_Btn.UseVisualStyleBackColor = true;
+            this.Load_Btn.Click += new System.EventHandler(this.Load_Btn_Click);
             // 
             // labelSigma
             // 
@@ -188,19 +195,19 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Binary Search Iterative";
             // 
-            // BinaryIterSearch_TxtBox
+            // BinaryIterSearch_TxtBoxA
             // 
-            this.BinaryIterSearch_TxtBox.Location = new System.Drawing.Point(223, 100);
-            this.BinaryIterSearch_TxtBox.Name = "BinaryIterSearch_TxtBox";
-            this.BinaryIterSearch_TxtBox.Size = new System.Drawing.Size(100, 20);
-            this.BinaryIterSearch_TxtBox.TabIndex = 13;
+            this.BinaryIterSearch_TxtBoxA.Location = new System.Drawing.Point(223, 100);
+            this.BinaryIterSearch_TxtBoxA.Name = "BinaryIterSearch_TxtBoxA";
+            this.BinaryIterSearch_TxtBoxA.Size = new System.Drawing.Size(100, 20);
+            this.BinaryIterSearch_TxtBoxA.TabIndex = 13;
             // 
-            // BinaryRecurSearch_TxtBox
+            // BinaryRecurSearch_TxtBoxA
             // 
-            this.BinaryRecurSearch_TxtBox.Location = new System.Drawing.Point(223, 193);
-            this.BinaryRecurSearch_TxtBox.Name = "BinaryRecurSearch_TxtBox";
-            this.BinaryRecurSearch_TxtBox.Size = new System.Drawing.Size(100, 20);
-            this.BinaryRecurSearch_TxtBox.TabIndex = 14;
+            this.BinaryRecurSearch_TxtBoxA.Location = new System.Drawing.Point(223, 193);
+            this.BinaryRecurSearch_TxtBoxA.Name = "BinaryRecurSearch_TxtBoxA";
+            this.BinaryRecurSearch_TxtBoxA.Size = new System.Drawing.Size(100, 20);
+            this.BinaryRecurSearch_TxtBoxA.TabIndex = 14;
             // 
             // label2
             // 
@@ -221,12 +228,12 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Search Target";
             // 
-            // SearchTarget_txtBox
+            // SearchTarget_txtBoxA
             // 
-            this.SearchTarget_txtBox.Location = new System.Drawing.Point(304, 240);
-            this.SearchTarget_txtBox.Name = "SearchTarget_txtBox";
-            this.SearchTarget_txtBox.Size = new System.Drawing.Size(30, 20);
-            this.SearchTarget_txtBox.TabIndex = 17;
+            this.SearchTarget_txtBoxA.Location = new System.Drawing.Point(304, 240);
+            this.SearchTarget_txtBoxA.Name = "SearchTarget_txtBoxA";
+            this.SearchTarget_txtBoxA.Size = new System.Drawing.Size(30, 20);
+            this.SearchTarget_txtBoxA.TabIndex = 17;
             // 
             // label4
             // 
@@ -246,19 +253,19 @@
             this.SelectionSort_btn.Text = "Sort";
             this.SelectionSort_btn.UseVisualStyleBackColor = true;
             // 
-            // SelectSort_txtBox
+            // SelectSort_txtBoxA
             // 
-            this.SelectSort_txtBox.Location = new System.Drawing.Point(223, 339);
-            this.SelectSort_txtBox.Name = "SelectSort_txtBox";
-            this.SelectSort_txtBox.Size = new System.Drawing.Size(100, 20);
-            this.SelectSort_txtBox.TabIndex = 20;
+            this.SelectSort_txtBoxA.Location = new System.Drawing.Point(223, 339);
+            this.SelectSort_txtBoxA.Name = "SelectSort_txtBoxA";
+            this.SelectSort_txtBoxA.Size = new System.Drawing.Size(100, 20);
+            this.SelectSort_txtBoxA.TabIndex = 20;
             // 
-            // InsertSort_txtBox
+            // InsertSort_txtBoxA
             // 
-            this.InsertSort_txtBox.Location = new System.Drawing.Point(223, 432);
-            this.InsertSort_txtBox.Name = "InsertSort_txtBox";
-            this.InsertSort_txtBox.Size = new System.Drawing.Size(100, 20);
-            this.InsertSort_txtBox.TabIndex = 23;
+            this.InsertSort_txtBoxA.Location = new System.Drawing.Point(223, 432);
+            this.InsertSort_txtBoxA.Name = "InsertSort_txtBoxA";
+            this.InsertSort_txtBoxA.Size = new System.Drawing.Size(100, 20);
+            this.InsertSort_txtBoxA.TabIndex = 23;
             // 
             // InsertSort_btn
             // 
@@ -278,12 +285,12 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Insertion Sort";
             // 
-            // InsertSort_txtBox1
+            // InsertSort_txtBoxB
             // 
-            this.InsertSort_txtBox1.Location = new System.Drawing.Point(518, 436);
-            this.InsertSort_txtBox1.Name = "InsertSort_txtBox1";
-            this.InsertSort_txtBox1.Size = new System.Drawing.Size(100, 20);
-            this.InsertSort_txtBox1.TabIndex = 37;
+            this.InsertSort_txtBoxB.Location = new System.Drawing.Point(518, 436);
+            this.InsertSort_txtBoxB.Name = "InsertSort_txtBoxB";
+            this.InsertSort_txtBoxB.Size = new System.Drawing.Size(100, 20);
+            this.InsertSort_txtBoxB.TabIndex = 37;
             // 
             // InsertSort_btn1
             // 
@@ -303,12 +310,12 @@
             this.label6.TabIndex = 35;
             this.label6.Text = "Insertion Sort";
             // 
-            // SelectSort_txtBox1
+            // SelectSort_txtBoxB
             // 
-            this.SelectSort_txtBox1.Location = new System.Drawing.Point(518, 343);
-            this.SelectSort_txtBox1.Name = "SelectSort_txtBox1";
-            this.SelectSort_txtBox1.Size = new System.Drawing.Size(100, 20);
-            this.SelectSort_txtBox1.TabIndex = 34;
+            this.SelectSort_txtBoxB.Location = new System.Drawing.Point(518, 343);
+            this.SelectSort_txtBoxB.Name = "SelectSort_txtBoxB";
+            this.SelectSort_txtBoxB.Size = new System.Drawing.Size(100, 20);
+            this.SelectSort_txtBoxB.TabIndex = 34;
             // 
             // SelectionSort_btn1
             // 
@@ -328,13 +335,13 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Selection Sort";
             // 
-            // SearchTarget_txtBox1
+            // SearchTarget_txtBoxB
             // 
-            this.SearchTarget_txtBox1.Location = new System.Drawing.Point(599, 243);
-            this.SearchTarget_txtBox1.Name = "SearchTarget_txtBox1";
-            this.SearchTarget_txtBox1.Size = new System.Drawing.Size(30, 20);
-            this.SearchTarget_txtBox1.TabIndex = 31;
-            this.SearchTarget_txtBox1.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.SearchTarget_txtBoxB.Location = new System.Drawing.Point(599, 243);
+            this.SearchTarget_txtBoxB.Name = "SearchTarget_txtBoxB";
+            this.SearchTarget_txtBoxB.Size = new System.Drawing.Size(30, 20);
+            this.SearchTarget_txtBoxB.TabIndex = 31;
+            this.SearchTarget_txtBoxB.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label8
             // 
@@ -355,19 +362,19 @@
             this.label9.TabIndex = 29;
             this.label9.Text = "Binary Search Recursive";
             // 
-            // BinaryRecurSearch_TxtBox1
+            // BinaryRecurSearch_TxtBoxB
             // 
-            this.BinaryRecurSearch_TxtBox1.Location = new System.Drawing.Point(518, 197);
-            this.BinaryRecurSearch_TxtBox1.Name = "BinaryRecurSearch_TxtBox1";
-            this.BinaryRecurSearch_TxtBox1.Size = new System.Drawing.Size(100, 20);
-            this.BinaryRecurSearch_TxtBox1.TabIndex = 28;
+            this.BinaryRecurSearch_TxtBoxB.Location = new System.Drawing.Point(518, 197);
+            this.BinaryRecurSearch_TxtBoxB.Name = "BinaryRecurSearch_TxtBoxB";
+            this.BinaryRecurSearch_TxtBoxB.Size = new System.Drawing.Size(100, 20);
+            this.BinaryRecurSearch_TxtBoxB.TabIndex = 28;
             // 
-            // BinaryIterSearch_TxtBox1
+            // BinaryIterSearch_TxtBoxB
             // 
-            this.BinaryIterSearch_TxtBox1.Location = new System.Drawing.Point(518, 104);
-            this.BinaryIterSearch_TxtBox1.Name = "BinaryIterSearch_TxtBox1";
-            this.BinaryIterSearch_TxtBox1.Size = new System.Drawing.Size(100, 20);
-            this.BinaryIterSearch_TxtBox1.TabIndex = 27;
+            this.BinaryIterSearch_TxtBoxB.Location = new System.Drawing.Point(518, 104);
+            this.BinaryIterSearch_TxtBoxB.Name = "BinaryIterSearch_TxtBoxB";
+            this.BinaryIterSearch_TxtBoxB.Size = new System.Drawing.Size(100, 20);
+            this.BinaryIterSearch_TxtBoxB.TabIndex = 27;
             // 
             // label10
             // 
@@ -402,31 +409,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 537);
-            this.Controls.Add(this.InsertSort_txtBox1);
+            this.Controls.Add(this.InsertSort_txtBoxB);
             this.Controls.Add(this.InsertSort_btn1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.SelectSort_txtBox1);
+            this.Controls.Add(this.SelectSort_txtBoxB);
             this.Controls.Add(this.SelectionSort_btn1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.SearchTarget_txtBox1);
+            this.Controls.Add(this.SearchTarget_txtBoxB);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.BinaryRecurSearch_TxtBox1);
-            this.Controls.Add(this.BinaryIterSearch_TxtBox1);
+            this.Controls.Add(this.BinaryRecurSearch_TxtBoxB);
+            this.Controls.Add(this.BinaryIterSearch_TxtBoxB);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.RecurSearchBtn1);
             this.Controls.Add(this.IterSearchBtn1);
-            this.Controls.Add(this.InsertSort_txtBox);
+            this.Controls.Add(this.InsertSort_txtBoxA);
             this.Controls.Add(this.InsertSort_btn);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.SelectSort_txtBox);
+            this.Controls.Add(this.SelectSort_txtBoxA);
             this.Controls.Add(this.SelectionSort_btn);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.SearchTarget_txtBox);
+            this.Controls.Add(this.SearchTarget_txtBoxA);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BinaryRecurSearch_TxtBox);
-            this.Controls.Add(this.BinaryIterSearch_TxtBox);
+            this.Controls.Add(this.BinaryRecurSearch_TxtBoxA);
+            this.Controls.Add(this.BinaryIterSearch_TxtBoxA);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RecurSearchBtn);
             this.Controls.Add(this.IterSearchBtn);
@@ -445,6 +452,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Sigma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Mu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,31 +474,33 @@
         private System.Windows.Forms.Button IterSearchBtn;
         private System.Windows.Forms.Button RecurSearchBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox BinaryIterSearch_TxtBox;
-        private System.Windows.Forms.TextBox BinaryRecurSearch_TxtBox;
+        private System.Windows.Forms.TextBox BinaryIterSearch_TxtBoxA;
+        private System.Windows.Forms.TextBox BinaryRecurSearch_TxtBoxA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox SearchTarget_txtBox;
+        private System.Windows.Forms.TextBox SearchTarget_txtBoxA;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button SelectionSort_btn;
-        private System.Windows.Forms.TextBox SelectSort_txtBox;
-        private System.Windows.Forms.TextBox InsertSort_txtBox;
+        private System.Windows.Forms.TextBox SelectSort_txtBoxA;
+        private System.Windows.Forms.TextBox InsertSort_txtBoxA;
         private System.Windows.Forms.Button InsertSort_btn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox InsertSort_txtBox1;
+        private System.Windows.Forms.TextBox InsertSort_txtBoxB;
         private System.Windows.Forms.Button InsertSort_btn1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox SelectSort_txtBox1;
+        private System.Windows.Forms.TextBox SelectSort_txtBoxB;
         private System.Windows.Forms.Button SelectionSort_btn1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox SearchTarget_txtBox1;
+        private System.Windows.Forms.TextBox SearchTarget_txtBoxB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox BinaryRecurSearch_TxtBox1;
-        private System.Windows.Forms.TextBox BinaryIterSearch_TxtBox1;
+        private System.Windows.Forms.TextBox BinaryRecurSearch_TxtBoxB;
+        private System.Windows.Forms.TextBox BinaryIterSearch_TxtBoxB;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button RecurSearchBtn1;
         private System.Windows.Forms.Button IterSearchBtn1;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource bindingSource2;
     }
 }
 
