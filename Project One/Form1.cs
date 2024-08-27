@@ -11,6 +11,7 @@ using CsvHelper;
 using System.Numerics;
 using System.Windows.Markup;
 using System.Runtime.Remoting.Messaging;
+using System.Windows.Documents;
 
 
 namespace Project_One
@@ -40,7 +41,7 @@ namespace Project_One
         {
             // Clear the ListBox before loading new data
             SensorAB_listBox.Items.Clear();
-
+            
             try
             {
                 using (var reader = new StreamReader(@"D:\Diploma\Complex Data Structure\Assessment\Data Processing\MalinStaffNamesV3.csv"))
@@ -53,6 +54,7 @@ namespace Project_One
                         if (values.Length >= 2)
                         {
                             // Combine the two values and add them to the ListBox
+                            // {10 is the distance between the two values}
                             string displayText = $"{values[0],-10} {values[1]}";
                             SensorAB_listBox.Items.Add(displayText);
                         }
@@ -65,7 +67,7 @@ namespace Project_One
             }
         }
 
-
+        
         private void ShowAllSensorData()
         {
 
@@ -125,15 +127,48 @@ namespace Project_One
 
         #region Sort and Search Methods
         //4.7 SelectionSort Method
-        private void SelectionSort()
+        private void SelectionSort(LinkedList<double> list)
         {
+            //    {
 
+            //        int min = 0;
+            //        int max = list.Count - 1;
 
+            //        for (int i = 0; i < max; i++)
+            //        {
+            //            min = i;
+
+            //            for (int j = i + 1; j <= max; j++)
+            //            {
+            //                if (list[j] < list[min])
+            //                {
+            //                    min = j;
+            //                }
+            //            }
+            //        }
+
+            //        // Find the node with the minimum value
+            //        LinkedListNode<double> currentNode = list.First;
+            //        for (int i = 0; i < list.Count; i++)
+            //        {
+            //            if (currentNode.Value == list[min])
+            //            {
+            //                break;
+            //            }
+            //            currentNode = currentNode.Next;
+            //        }
+
+            //        // Swap the values
+            //        double temp = currentNode.Value;
+            //        currentNode.Value = list[min];
+            //        list.AddLast(temp);
+            //    }
         }
 
-        //4.8 InsertionSort Method
-        private void InsertionSort()
+            //4.8 InsertionSort Method
+           private void InsertionSort()
         {
+            
 
         }
 
