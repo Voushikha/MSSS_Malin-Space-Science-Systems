@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SensorAB_listBox = new System.Windows.Forms.ListBox();
-            this.SensorA_listView = new System.Windows.Forms.ListView();
-            this.SensorB_listView = new System.Windows.Forms.ListView();
             this.numericUpDown_Sigma = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_Mu = new System.Windows.Forms.NumericUpDown();
             this.Load_Btn = new System.Windows.Forms.Button();
@@ -66,37 +63,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.RecurSearchBtn1 = new System.Windows.Forms.Button();
             this.IterSearchBtn1 = new System.Windows.Forms.Button();
+            this.listBoxA = new System.Windows.Forms.ListBox();
+            this.SensorAB_listView = new System.Windows.Forms.ListView();
+            this.lstBoxB = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Sigma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Mu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // SensorAB_listBox
-            // 
-            this.SensorAB_listBox.FormattingEnabled = true;
-            this.SensorAB_listBox.Location = new System.Drawing.Point(18, 95);
-            this.SensorAB_listBox.Name = "SensorAB_listBox";
-            this.SensorAB_listBox.Size = new System.Drawing.Size(160, 420);
-            this.SensorAB_listBox.TabIndex = 0;
-            // 
-            // SensorA_listView
-            // 
-            this.SensorA_listView.AccessibleName = "";
-            this.SensorA_listView.HideSelection = false;
-            this.SensorA_listView.Location = new System.Drawing.Point(353, 28);
-            this.SensorA_listView.Name = "SensorA_listView";
-            this.SensorA_listView.Size = new System.Drawing.Size(129, 487);
-            this.SensorA_listView.TabIndex = 1;
-            this.SensorA_listView.UseCompatibleStateImageBehavior = false;
-            // 
-            // SensorB_listView
-            // 
-            this.SensorB_listView.AccessibleName = "";
-            this.SensorB_listView.HideSelection = false;
-            this.SensorB_listView.Location = new System.Drawing.Point(648, 28);
-            this.SensorB_listView.Name = "SensorB_listView";
-            this.SensorB_listView.Size = new System.Drawing.Size(129, 487);
-            this.SensorB_listView.TabIndex = 2;
-            this.SensorB_listView.UseCompatibleStateImageBehavior = false;
             // 
             // numericUpDown_Sigma
             // 
@@ -396,12 +368,41 @@
             this.IterSearchBtn1.Text = "Search";
             this.IterSearchBtn1.UseVisualStyleBackColor = true;
             // 
+            // listBoxA
+            // 
+            this.listBoxA.FormattingEnabled = true;
+            this.listBoxA.Location = new System.Drawing.Point(367, 28);
+            this.listBoxA.Name = "listBoxA";
+            this.listBoxA.Size = new System.Drawing.Size(129, 485);
+            this.listBoxA.TabIndex = 38;
+            // 
+            // SensorAB_listView
+            // 
+            this.SensorAB_listView.AccessibleName = "";
+            this.SensorAB_listView.HideSelection = false;
+            this.SensorAB_listView.Location = new System.Drawing.Point(12, 95);
+            this.SensorAB_listView.Name = "SensorAB_listView";
+            this.SensorAB_listView.Size = new System.Drawing.Size(168, 430);
+            this.SensorAB_listView.TabIndex = 39;
+            this.SensorAB_listView.UseCompatibleStateImageBehavior = false;
+            // 
+            // lstBoxB
+            // 
+            this.lstBoxB.FormattingEnabled = true;
+            this.lstBoxB.Location = new System.Drawing.Point(659, 28);
+            this.lstBoxB.Name = "lstBoxB";
+            this.lstBoxB.Size = new System.Drawing.Size(129, 485);
+            this.lstBoxB.TabIndex = 40;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 537);
+            this.Controls.Add(this.lstBoxB);
+            this.Controls.Add(this.SensorAB_listView);
+            this.Controls.Add(this.listBoxA);
             this.Controls.Add(this.InsertSort_txtBox1);
             this.Controls.Add(this.InsertSort_btn1);
             this.Controls.Add(this.label6);
@@ -437,9 +438,6 @@
             this.Controls.Add(this.Load_Btn);
             this.Controls.Add(this.numericUpDown_Mu);
             this.Controls.Add(this.numericUpDown_Sigma);
-            this.Controls.Add(this.SensorB_listView);
-            this.Controls.Add(this.SensorA_listView);
-            this.Controls.Add(this.SensorAB_listBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -451,10 +449,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox SensorAB_listBox;
-        private System.Windows.Forms.ListView SensorA_listView;
-        private System.Windows.Forms.ListView SensorB_listView;
         private System.Windows.Forms.NumericUpDown numericUpDown_Sigma;
         private System.Windows.Forms.NumericUpDown numericUpDown_Mu;
         private System.Windows.Forms.Button Load_Btn;
@@ -490,6 +484,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button RecurSearchBtn1;
         private System.Windows.Forms.Button IterSearchBtn1;
+        private System.Windows.Forms.ListBox listBoxA;
+        private System.Windows.Forms.ListView SensorAB_listView;
+        private System.Windows.Forms.ListBox lstBoxB;
     }
 }
 
