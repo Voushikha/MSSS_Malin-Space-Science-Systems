@@ -1,4 +1,6 @@
-﻿namespace Project_One
+﻿using System;
+
+namespace Project_One
 {
     partial class Form1
     {
@@ -92,6 +94,7 @@
             this.Load_Btn.TabIndex = 5;
             this.Load_Btn.Text = "Load Sensor Data";
             this.Load_Btn.UseVisualStyleBackColor = true;
+            this.Load_Btn.Click += new System.EventHandler(this.Load_Btn_Click);
             // 
             // labelSigma
             // 
@@ -446,6 +449,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
