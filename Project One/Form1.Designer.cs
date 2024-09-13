@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.SensorAB_listBox = new System.Windows.Forms.ListBox();
-            this.SensorA_listView = new System.Windows.Forms.ListView();
-            this.SensorB_listView = new System.Windows.Forms.ListView();
+            this.SensorAB_lstView = new System.Windows.Forms.ListView();
             this.numericUpDown_Sigma = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_Mu = new System.Windows.Forms.NumericUpDown();
             this.Load_Btn = new System.Windows.Forms.Button();
@@ -69,40 +67,23 @@
             this.IterSearchBtn1 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.lstBoxA = new System.Windows.Forms.ListBox();
+            this.lstBoxB = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Sigma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Mu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
-            // SensorAB_listBox
+            // SensorAB_lstView
             // 
-            this.SensorAB_listBox.FormattingEnabled = true;
-            this.SensorAB_listBox.Location = new System.Drawing.Point(12, 95);
-            this.SensorAB_listBox.Name = "SensorAB_listBox";
-            this.SensorAB_listBox.Size = new System.Drawing.Size(174, 420);
-            this.SensorAB_listBox.TabIndex = 0;
-            this.SensorAB_listBox.SelectedIndexChanged += new System.EventHandler(this.SensorAB_listBox_SelectedIndexChanged);
-            // 
-            // SensorA_listView
-            // 
-            this.SensorA_listView.AccessibleName = "";
-            this.SensorA_listView.HideSelection = false;
-            this.SensorA_listView.Location = new System.Drawing.Point(353, 28);
-            this.SensorA_listView.Name = "SensorA_listView";
-            this.SensorA_listView.Size = new System.Drawing.Size(129, 487);
-            this.SensorA_listView.TabIndex = 1;
-            this.SensorA_listView.UseCompatibleStateImageBehavior = false;
-            // 
-            // SensorB_listView
-            // 
-            this.SensorB_listView.AccessibleName = "";
-            this.SensorB_listView.HideSelection = false;
-            this.SensorB_listView.Location = new System.Drawing.Point(648, 28);
-            this.SensorB_listView.Name = "SensorB_listView";
-            this.SensorB_listView.Size = new System.Drawing.Size(129, 487);
-            this.SensorB_listView.TabIndex = 2;
-            this.SensorB_listView.UseCompatibleStateImageBehavior = false;
+            this.SensorAB_lstView.AccessibleName = "";
+            this.SensorAB_lstView.HideSelection = false;
+            this.SensorAB_lstView.Location = new System.Drawing.Point(12, 95);
+            this.SensorAB_lstView.Name = "SensorAB_lstView";
+            this.SensorAB_lstView.Size = new System.Drawing.Size(174, 418);
+            this.SensorAB_lstView.TabIndex = 2;
+            this.SensorAB_lstView.UseCompatibleStateImageBehavior = false;
             // 
             // numericUpDown_Sigma
             // 
@@ -403,12 +384,30 @@
             this.IterSearchBtn1.Text = "Search";
             this.IterSearchBtn1.UseVisualStyleBackColor = true;
             // 
+            // lstBoxA
+            // 
+            this.lstBoxA.FormattingEnabled = true;
+            this.lstBoxA.Location = new System.Drawing.Point(353, 28);
+            this.lstBoxA.Name = "lstBoxA";
+            this.lstBoxA.Size = new System.Drawing.Size(129, 485);
+            this.lstBoxA.TabIndex = 38;
+            // 
+            // lstBoxB
+            // 
+            this.lstBoxB.FormattingEnabled = true;
+            this.lstBoxB.Location = new System.Drawing.Point(643, 28);
+            this.lstBoxB.Name = "lstBoxB";
+            this.lstBoxB.Size = new System.Drawing.Size(129, 485);
+            this.lstBoxB.TabIndex = 39;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 537);
+            this.Controls.Add(this.lstBoxB);
+            this.Controls.Add(this.lstBoxA);
             this.Controls.Add(this.InsertSort_txtBoxB);
             this.Controls.Add(this.InsertSort_btn1);
             this.Controls.Add(this.label6);
@@ -444,9 +443,7 @@
             this.Controls.Add(this.Load_Btn);
             this.Controls.Add(this.numericUpDown_Mu);
             this.Controls.Add(this.numericUpDown_Sigma);
-            this.Controls.Add(this.SensorB_listView);
-            this.Controls.Add(this.SensorA_listView);
-            this.Controls.Add(this.SensorAB_listBox);
+            this.Controls.Add(this.SensorAB_lstView);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -460,10 +457,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox SensorAB_listBox;
-        private System.Windows.Forms.ListView SensorA_listView;
-        private System.Windows.Forms.ListView SensorB_listView;
+        private System.Windows.Forms.ListView SensorAB_lstView;
         private System.Windows.Forms.NumericUpDown numericUpDown_Sigma;
         private System.Windows.Forms.NumericUpDown numericUpDown_Mu;
         private System.Windows.Forms.Button Load_Btn;
@@ -501,6 +495,8 @@
         private System.Windows.Forms.Button IterSearchBtn1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.BindingSource bindingSource2;
+        private System.Windows.Forms.ListBox lstBoxA;
+        private System.Windows.Forms.ListBox lstBoxB;
     }
 }
 
